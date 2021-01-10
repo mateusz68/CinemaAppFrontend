@@ -1,33 +1,20 @@
 import './App.css';
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import MovieList from './components/MoviesList/MovieList';
 import axios from 'axios';
 import * as MovieApi from './api/MovieApi'
-
-const initialStateItems = [
-  {
-    image: 'https://static.filmaster.com/media/cache/17/88/1788564bbc6b843116fbbaf79ab4e93f.jpg',
-    title: 'Piraci z Karaibów: Klątwa Czarnej Perły',
-    movieTime: '140',
-    hall: "abc"
-  },
-  {
-    image: 'https://www.filmowa.net/images/piraci.jpg',
-    title: 'Piraci z Karaibów: Zemsta Salazara',
-    movieTime: '120'
-  }
-]
+import MovieDetails from './components/MovieDetails/MovieDetails'
 
 class App extends React.Component{
   state = {
-    items: [...initialStateItems],
+    items: [],
   }
 
   componentDidMount(){
     MovieApi.getAllMovies()
     .then(response =>{
       var movies = response;
-      console.log(movies);
       this.setState({
         items: movies,
       })
@@ -37,9 +24,18 @@ class App extends React.Component{
   }
   render(){
     return(
-      <div>
-        <MovieList items={this.state.items}></MovieList>
-      </div>
+      
+        <Router>
+           <div className="topnav">
+            <div className="topnavElements">
+                <Link to="/" className="navElement">Home</Link>
+            </div>
+        </div >
+<Route exact path="/" render={() => <MovieList items={this.state.items} />} />
+<Route exact path="/movie/:id" component={MovieDetails} />
+
+</Router>
+
     )
   }
 }
