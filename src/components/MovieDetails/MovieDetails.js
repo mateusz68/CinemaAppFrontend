@@ -1,5 +1,7 @@
 import React from 'react';
+import SeanseList from '../SeansesList/SeansesList';
 import * as MovieApi from './../../api/MovieApi';
+import MoviePopularity from './../MoviePopularity/MoviePopularity';
 class  MovieDetails extends React.Component{
     constructor(props){
         super(props);
@@ -10,18 +12,24 @@ class  MovieDetails extends React.Component{
             title: "",
             duration: 0,
             cover: "",
-        }
+        },
+        seanses: [],
     }
 
     componentDidMount(){
         MovieApi.getSingleMovie(this.props.match.params.id)
         .then(response =>{
-          var movie = response;
-          console.log(movie);
           this.setState({
-            movie: movie,
+            movie: response,
           })
-        })
+        });
+
+        MovieApi.getMovieSeanses(this.props.match.params.id)
+    .then(response =>{
+        this.setState({ 
+                seanses: response,
+            })
+        });
     }
 
     render () {
@@ -37,7 +45,15 @@ class  MovieDetails extends React.Component{
         <p>Opis:</p>
         <p>....</p>
                     </div>
+                    
                 </div>
+                <div className="p-5">
+                        <h1>Najbliższe seanse:</h1>
+                        <SeanseList items={this.state.seanses} />
+                    </div>
+                    <div className="text-center mx-auto">
+                    <MoviePopularity id={this.props.match.params.id}/>
+                    </div>
             </div>
         )
     }

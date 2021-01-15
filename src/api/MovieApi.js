@@ -20,3 +20,54 @@ export const getSingleMovie = (id) =>{
         return error;
     });
 }
+
+export const getMovieSeanses = (id) =>{
+    return axios.get('movies/'+id+"/seanse/")
+    .then((response) =>{
+        return response.data;
+    })
+    .catch((error) =>{
+        return error;
+    });
+}
+
+export const getTicketDetails = (id) =>{
+    return axios.get('seanses/'+id+"/ticket/")
+    .then((response) =>{
+        return response.data;
+    })
+    .catch((error) =>{
+        return error;
+    });
+}
+
+export const getLastMovies = () =>{
+    return axios.get("lastmovies/")
+    .then((response) =>{
+        return response.data;
+    })
+    .catch((error) =>{
+        return error;
+    });
+}
+
+export const getTodaySeanses = () =>{
+    return axios.get("todayseanses/")
+    .then((response) =>{
+        return response.data;
+    })
+    .catch((error) =>{
+        return error;
+    });
+}
+
+export const getMoviePopularity = (id) =>{
+    return axios.get('movies/'+id+"/popularity/")
+    .then((response) =>{
+        return response.data;
+    })
+    .catch((error) =>{
+        return error;
+    });
+}
+
