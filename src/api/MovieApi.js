@@ -32,6 +32,25 @@ export const addTicket = (body) => {
         });
 }
 
+export const editMovie = (id, body) => {
+    return axios.put("/movies/" + id +"/", body)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
+
+export const deleteMovie = (id) => {
+    return axios.delete("/movies/" + id+"/")
+        .then(response => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
 
 export const getMovieSeanses = (id) =>{
     return axios.get('movies/'+id+"/seanse/")

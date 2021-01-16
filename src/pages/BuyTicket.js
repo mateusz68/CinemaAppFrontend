@@ -55,9 +55,16 @@ class BuyTicket extends React.Component {
         "seanse": this.state.seanse.pk,
         "seat": Number(this.state.selectedOption.value)
       }
-      MovieApi.addTicket(body);
-      window.alert("Rezerwacja złożona pomyślnie");
-      this.props.history.push('/');
+      MovieApi.addTicket(body)
+      .then(response => {
+        if (response.status === 204) {
+          window.alert("Rezerwacja złożona pomyślnie");
+          this.props.history.push('/');
+        }else{
+          window.alert("Nie udało się łżożyć rezerwacji");
+        }
+      });
+      
     }
 
   }

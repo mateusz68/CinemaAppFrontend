@@ -28,7 +28,7 @@ class Home extends React.Component{
     }
     render(){
       return(
-        <diV>
+        <div>
          <div>
              <h1>Najnowsze filmy</h1>
          <MovieList items={this.state.movies} />
@@ -37,7 +37,7 @@ class Home extends React.Component{
          <h1>Dzisiejsze seanse</h1>
         <SeanseList items={this.state.seanses} />
          </div>
-  </diV>
+  </div>
       )
     }
   }

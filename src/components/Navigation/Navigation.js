@@ -19,15 +19,11 @@ const Navigation = () => {
       <li className="nav-item">
       <Link to="/seanses" className="nav-link">Seanse</Link>
       </li>
-      <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a className="dropdown-item" href="#">Action</a>
-          <a className="dropdown-item" href="#">Another action</a>
-          <a className="dropdown-item" href="#">Something else here</a>
-        </div>
+      <li className="nav-item">
+      <Link to="/manage/movies" className="nav-link">Zarządzaj filmami</Link>
+      </li>
+      <li className="nav-item">
+      <Link to="/manage/seanses" className="nav-link">Zarządzj senasami</Link>
       </li>
     </ul>
   </div>

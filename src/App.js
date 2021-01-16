@@ -11,6 +11,7 @@ import Movies from './pages/Movies';
 import Seanses from './pages/Seanses';
 import BuyTicket from './pages/BuyTicket';
 import Movie from './pages/Movie';
+import ManageMovies from './pages/ManageMovies';
 
 class App extends React.Component{
   state = {
@@ -32,7 +33,7 @@ class App extends React.Component{
     return(
       <div>
        
-<div className="container mt-2">
+<div className="container mt-2 mb-5">
 
     
     <Router>
@@ -42,6 +43,7 @@ class App extends React.Component{
 <Route exact path="/seanses" component={Seanses} />
 <Route exact path="/movie/:id" component={Movie} />
 <Route exact path="/ticket/:id" component={BuyTicket} />
+<Route exact path="/manage/movies" component={ManageMovies} />
 
 </Router>
 
