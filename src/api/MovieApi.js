@@ -21,6 +21,18 @@ export const getSingleMovie = (id) =>{
     });
 }
 
+
+export const addTicket = (body) => {
+    return axios.post("/tickets/", body)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
+
+
 export const getMovieSeanses = (id) =>{
     return axios.get('movies/'+id+"/seanse/")
     .then((response) =>{

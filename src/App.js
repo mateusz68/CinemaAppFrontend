@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Seanses from './pages/Seanses';
 import BuyTicket from './pages/BuyTicket';
+import Movie from './pages/Movie';
 
 class App extends React.Component{
   state = {
@@ -39,7 +40,7 @@ class App extends React.Component{
 <Route exact path="/" component={Home} />
 <Route exact path="/movies" component={Movies} />
 <Route exact path="/seanses" component={Seanses} />
-<Route exact path="/movie/:id" component={MovieDetails} />
+<Route exact path="/movie/:id" component={Movie} />
 <Route exact path="/ticket/:id" component={BuyTicket} />
 
 </Router>
