@@ -6,6 +6,8 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import EditForm from './../components/Manage/Movie/Forms/EditForm'
 import DeleteForm from './../components/Manage/Movie/Forms/DeleteForm'
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 class ManageMovies extends React.Component{
     state = {
@@ -21,12 +23,80 @@ class ManageMovies extends React.Component{
         }); 
       }
 
+      createNotification(message, type) {
+        switch (type) {
+          case "SUCCESS":
+            NotificationManager.success('Success', message);
+            break;
+          case "ERROR":
+            NotificationManager.error('Error', message);
+            break;
+          default:
+            break;
+        }
+      }
+
+      showAddForm = () => {
+          const movie = {
+              title: "",
+              duration: 0,
+              cover: "",
+            description: ""
+          };
+        confirmAlert({
+          customUI: ({ onClose }) => {
+            return (
+              <div>
+                <EditForm movie={movie} onClose={onClose} editMovie={this.addMovie} />
+              </div>
+            );
+          }
+        });
+      }
+
+      addMovie = (movie, s) => {
+        console.log("hej")
+        var body = {
+          "title": s.editTitle,
+          "duration": Number(s.editDuration),
+          "cover": s.editCover,
+          "description": s.editDescription,
+        }
+        var messages = this.validateEditForm(body);
+        if (messages.length === 0) {
+           MovieApi.addMovie(body)
+           .then(response => {
+            if (response.status === 201) {
+                
+                body["pk"] = response.data.pk
+           this.setState(state => {
+            var prev = state.movies;
+            console.log(prev);
+            prev.push(body);
+            console.log("edycja");
+            console.log(prev);
+            console.log(body)
+            return { movies: prev };
+          });
+
+            }
+          });
+
+        }
+         else {
+          for (let i = 0; i < messages.length; i++)
+            window.alert(messages[i]);
+        }
+      }
+
+
       showEditForm = (movie) => {
         confirmAlert({
           customUI: ({ onClose }) => {
             return (
               <div>
                 <EditForm movie={movie} onClose={onClose} editMovie={this.editMovie} />
+                <NotificationContainer />
               </div>
             );
           }
@@ -44,14 +114,10 @@ class ManageMovies extends React.Component{
         }
         var messages = this.validateEditForm(body);
         if (messages.length === 0) {
-
-            // this.props.editNote(body);
-            //this.setState
-            
            MovieApi.editMovie(movie.pk,body)
            .then(response => {
             if (response.status === 200) {
-                window.alert("Edycja zakończona poprawnie.");
+                this.createNotification('Edycja zakończona poprawnie.', "SUCCESS");
               this.setState((prevState) => { 
                 let prev = prevState.movies;
                 let index = prev.findIndex((obj => obj.pk == movie.pk));
@@ -64,7 +130,7 @@ class ManageMovies extends React.Component{
         }
          else {
           for (let i = 0; i < messages.length; i++)
-            window.alert(messages[i]);
+          this.createNotification(messages[i], "ERROR");
         }
       }
 
@@ -112,7 +178,7 @@ class ManageMovies extends React.Component{
         MovieApi.deleteMovie(id)
           .then(response => {
             if (response.status === 204) {
-                window.alert("Film usunięty poprawnie.");
+                this.createNotification('Film usunięty poprawnie.', "SUCCESS");
                 this.setState((prevState) => { 
                     let prev = prevState.movies;
                     let index = prev.findIndex((obj => obj.pk == id));
@@ -130,7 +196,7 @@ class ManageMovies extends React.Component{
         <div>
          <div className="text-center">
              <h1>Zarządzaj Filmami</h1>
-             <Button className="m-2" variant="success">Dodaj nowy</Button>
+             <Button className="m-2" variant="success" onClick={() => this.showAddForm()}>Dodaj nowy</Button>
          <MovieManageList movies={this.state.movies} showEditForm={this.showEditForm} showDeleteForm={this.showDeleteForm}/>
          </div>
   </div>

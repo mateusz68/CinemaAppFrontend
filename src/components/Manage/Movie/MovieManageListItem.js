@@ -22,8 +22,6 @@ const MovieManageListItem = ({
             <div className="col-2 text-center">
                 <Button className="m-2" onClick={() => showEditForm(movie)} variant="warning">Edytuj</Button>
                 <Button className="m-2" onClick={() => showDeleteForm(movie)} variant="danger">Usuń</Button>
-
-
             </div>
 
         </div>

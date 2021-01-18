@@ -33,7 +33,7 @@ class EditForm extends Component {
                 </div>
                 <div className="form-group">
                     <label>Czas Trwania</label>
-                    <input className="form-control" type="text" id="editDuration" defaultValue={movie.duration} style={{ border: 'none' }} onChange={(e) => this.onChange(e)} />
+                    <input className="form-control" type="number" id="editDuration" defaultValue={movie.duration} style={{ border: 'none' }} onChange={(e) => this.onChange(e)} />
                 </div>
                 <div className="form-group">
                     <label>Okładka</label>

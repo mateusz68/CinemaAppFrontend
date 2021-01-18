@@ -11,6 +11,26 @@ export const getAllMovies = () =>{
     });
 }
 
+export const getAllSeanses = () =>{
+    return axios.get('seanses/')
+    .then((response) =>{
+        return response.data;
+    })
+    .catch((error) =>{
+        return error;
+    });
+}
+
+export const getAllHalls = () =>{
+    return axios.get('halls/')
+    .then((response) =>{
+        return response.data;
+    })
+    .catch((error) =>{
+        return error;
+    });
+}
+
 export const getSingleMovie = (id) =>{
     return axios.get('movies/'+id+"/")
     .then((response) =>{
@@ -51,6 +71,47 @@ export const deleteMovie = (id) => {
             return error;
         });
 }
+
+export const addMovie = (body) => {
+    return axios.post("/movies/", body)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
+
+export const editSeanse = (id, body) => {
+    return axios.put("/seanse/" + id +"/", body)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
+
+export const deleteSeanse = (id) => {
+    return axios.delete("/seanse/" + id+"/")
+        .then(response => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
+
+export const addSeanse = (body) => {
+    return axios.post("/seanse/", body)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
+
 
 export const getMovieSeanses = (id) =>{
     return axios.get('movies/'+id+"/seanse/")

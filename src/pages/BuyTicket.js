@@ -5,6 +5,8 @@ import Select from 'react-select';
 import MovieDetails from './../components/MovieDetails/MovieDetails';
 import './BuyTicket.css';
 import { useHistory } from 'react-router-dom';
+import { NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 class BuyTicket extends React.Component {
   state = {
@@ -49,6 +51,19 @@ class BuyTicket extends React.Component {
     })
   };
 
+  createNotification(message, type) {
+    switch (type) {
+      case "SUCCESS":
+        NotificationManager.success('Success', message);
+        break;
+      case "ERROR":
+        NotificationManager.error('Error', message);
+        break;
+      default:
+        break;
+    }
+  }
+
   buyTicketClick() {
     if (this.state.selectedOption != null) {
       const body = {
@@ -57,11 +72,11 @@ class BuyTicket extends React.Component {
       }
       MovieApi.addTicket(body)
       .then(response => {
-        if (response.status === 204) {
-          window.alert("Rezerwacja złożona pomyślnie");
+        if (response.status === 201) {
+          this.createNotification('Rezerwacja złożona pomyślnie.', "SUCCESS");
           this.props.history.push('/');
         }else{
-          window.alert("Nie udało się łżożyć rezerwacji");
+          this.createNotification("Nie udało się złżożyć rezerwacji", "ERROR");
         }
       });
       

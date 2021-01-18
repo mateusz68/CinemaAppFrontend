@@ -12,6 +12,8 @@ import Seanses from './pages/Seanses';
 import BuyTicket from './pages/BuyTicket';
 import Movie from './pages/Movie';
 import ManageMovies from './pages/ManageMovies';
+import ManageSeanses from './pages/ManageSeanses';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 class App extends React.Component{
   state = {
@@ -44,9 +46,9 @@ class App extends React.Component{
 <Route exact path="/movie/:id" component={Movie} />
 <Route exact path="/ticket/:id" component={BuyTicket} />
 <Route exact path="/manage/movies" component={ManageMovies} />
-
+<Route exact path="/manage/seanses" component={ManageSeanses} />
 </Router>
-
+<NotificationContainer />
 </div>
 
 

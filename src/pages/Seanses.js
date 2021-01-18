@@ -9,7 +9,7 @@ class Home extends React.Component{
   
     componentDidMount(){
 
-      MovieApi.getTodaySeanses()
+      MovieApi.getAllSeanses()
       .then(response =>{
         this.setState({
           seanses: response,
