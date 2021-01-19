@@ -74,7 +74,6 @@ class ManageSeanses extends React.Component {
   }
 
   formatDate = (date) => {
-    var outDate = moment(date);
     return moment(date).format("yyyy-MM-DDTHH:mm:ssZ")
   }
   addSeanse = (seanse, s) => {
@@ -140,7 +139,7 @@ class ManageSeanses extends React.Component {
               body.movie = s.editMovie;
               body.hall = s.editHall;
               let prev = prevState.seanses;
-              let index = prev.findIndex((obj => obj.pk == seanse.pk));
+              let index = prev.findIndex((obj => obj.pk === seanse.pk));
               prev[index] = body;
               return { seanses: prev };
             })
@@ -201,7 +200,7 @@ class ManageSeanses extends React.Component {
           this.createNotification('Seans usunięty poprawnie.', "SUCCESS");
           this.setState((prevState) => {
             let prev = prevState.seanses;
-            let index = prev.findIndex((obj => obj.pk == id));
+            let index = prev.findIndex((obj => obj.pk === id));
             if (index > -1) {
               prev.splice(index, 1);
             }
@@ -218,6 +217,7 @@ class ManageSeanses extends React.Component {
           <h1>Zarządzaj Seansami</h1>
           <Button className="m-2" variant="success" onClick={() => this.showAddForm()}>Dodaj nowy</Button>
           <SeanseManageList seanses={this.state.seanses} showEditForm={this.showEditForm} showDeleteForm={this.showDeleteForm} />
+          <NotificationContainer />
         </div>
       </div>
     )

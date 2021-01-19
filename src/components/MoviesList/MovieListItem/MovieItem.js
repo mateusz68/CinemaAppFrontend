@@ -14,7 +14,7 @@ const MovieItem = ({
     <li className="list-group-item">
         <div className="row">
             <div className="col-4">
-            <img className="coverimage" src={cover}/>
+            <img className="coverimage" src={cover} alt="Movie Cover"/>
             </div>
 
             <div className="col-6 text-center">

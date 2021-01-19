@@ -71,11 +71,7 @@ class ManageMovies extends React.Component{
                 body["pk"] = response.data.pk
            this.setState(state => {
             var prev = state.movies;
-            console.log(prev);
             prev.push(body);
-            console.log("edycja");
-            console.log(prev);
-            console.log(body)
             return { movies: prev };
           });
 
@@ -120,7 +116,7 @@ class ManageMovies extends React.Component{
                 this.createNotification('Edycja zakończona poprawnie.', "SUCCESS");
               this.setState((prevState) => { 
                 let prev = prevState.movies;
-                let index = prev.findIndex((obj => obj.pk == movie.pk));
+                let index = prev.findIndex((obj => obj.pk === movie.pk));
                 prev[index] = body;
                 return {movies: prev};
            })
@@ -181,7 +177,7 @@ class ManageMovies extends React.Component{
                 this.createNotification('Film usunięty poprawnie.', "SUCCESS");
                 this.setState((prevState) => { 
                     let prev = prevState.movies;
-                    let index = prev.findIndex((obj => obj.pk == id));
+                    let index = prev.findIndex((obj => obj.pk === id));
                     if (index > -1) {
                         prev.splice(index, 1);
                       }
@@ -198,6 +194,7 @@ class ManageMovies extends React.Component{
              <h1>Zarządzaj Filmami</h1>
              <Button className="m-2" variant="success" onClick={() => this.showAddForm()}>Dodaj nowy</Button>
          <MovieManageList movies={this.state.movies} showEditForm={this.showEditForm} showDeleteForm={this.showDeleteForm}/>
+         <NotificationContainer />
          </div>
   </div>
       )

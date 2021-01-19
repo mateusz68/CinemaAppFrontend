@@ -58,7 +58,7 @@ class EditForm extends Component {
 
     onChangeDate(e) {
         var date = e.toDate();
-        date = moment(date).format("yyyy-MM-DDTHH:mm:ssZ")
+        date = moment(date).format("yyyy-MM-DDTHH:mm:ssZ");
         this.setState({
             editDate: date
         })

@@ -48,7 +48,6 @@ class App extends React.Component{
 <Route exact path="/manage/movies" component={ManageMovies} />
 <Route exact path="/manage/seanses" component={ManageSeanses} />
 </Router>
-<NotificationContainer />
 </div>
 
 

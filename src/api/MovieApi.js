@@ -163,3 +163,13 @@ export const getMoviePopularity = (id) =>{
     });
 }
 
+
+export const getSeansesByDate = (date) =>{
+    return axios.get('seansebyday/' + '?day='+date)
+    .then((response) =>{
+        return response.data;
+    })
+    .catch((error) =>{
+        return error;
+    });
+}

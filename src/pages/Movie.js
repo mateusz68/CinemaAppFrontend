@@ -5,9 +5,6 @@ import MoviePopularity from './../components/MoviePopularity/MoviePopularity';
 import MovieDetails from './../components/MovieDetails/MovieDetails'
 
 class  Movie extends React.Component{
-    constructor(props){
-        super(props);
-    }
     state ={
         movie: {
             pk : 0,
