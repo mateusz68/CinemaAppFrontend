@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as Icon from "react-bootstrap-icons";
 import { Button } from 'react-bootstrap';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 class EditForm extends Component {
     constructor(props) {
