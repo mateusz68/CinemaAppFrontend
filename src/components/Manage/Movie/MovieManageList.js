@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieManageListItem from './MovieManageListItem';
+import PropTypes from 'prop-types';
 
 const MovieManageList = (props) =>(
     <ul className="list-group">
@@ -8,5 +9,11 @@ const MovieManageList = (props) =>(
         ))}
     </ul>
 );
+
+MovieManageList.propTypes = {
+movie: PropTypes.object,
+showEditForm : PropTypes.func,
+showDeleteForm : PropTypes.func
+}
 
 export default MovieManageList;
