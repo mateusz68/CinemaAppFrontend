@@ -154,9 +154,11 @@ class ManageMovies extends React.Component{
           } 
 
           if (movie.duration === "") {
-            messages.push("Czas trwanai nie może być pusty");
+            messages.push("Czas trwania nie może być pusty");
           } 
-
+        if(movie.duration <= 0){
+            messages.push("Czas trwania musi być większy od 0")
+        }
         return messages;
       }
 
