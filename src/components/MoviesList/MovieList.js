@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const MovieList = (props) => (
     <ul className="list-group">
         {props.items.map(item => (
-            <MovieItem key={item.title} {...item}></MovieItem>
+            <MovieItem key={item.pk} {...item}></MovieItem>
         ))}
     </ul>
 );

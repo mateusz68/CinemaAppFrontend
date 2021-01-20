@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import './MovieItem.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';

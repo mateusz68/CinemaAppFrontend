@@ -47,9 +47,9 @@ class App extends React.Component {
         </div>
 
 
-        <footer class="py-5 bg-dark">
-          <div class="container">
-            <p class="m-0 text-center text-white">Kino 2020</p>
+        <footer className="py-5 bg-dark">
+          <div className="container">
+            <p className="m-0 text-center text-white">Kino 2020</p>
           </div>
         </footer>
       </div>

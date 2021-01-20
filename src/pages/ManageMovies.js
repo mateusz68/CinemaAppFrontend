@@ -48,6 +48,7 @@ class ManageMovies extends React.Component {
         return (
           <div>
             <EditForm movie={movie} onClose={onClose} editMovie={this.addMovie} />
+            <NotificationContainer />
           </div>
         );
       }
@@ -66,7 +67,7 @@ class ManageMovies extends React.Component {
       MovieApi.addMovie(body)
         .then(response => {
           if (response.status === 201) {
-
+            this.createNotification('Film dodany porpawnie.', "SUCCESS");
             body["pk"] = response.data.pk
             this.setState(state => {
               return { movies: [...state.movies, body] };
@@ -78,7 +79,7 @@ class ManageMovies extends React.Component {
     }
     else {
       for (let i = 0; i < messages.length; i++)
-        window.alert(messages[i]);
+        this.createNotification(messages[i], "ERROR");
     }
   }
 
