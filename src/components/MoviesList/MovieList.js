@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieItem from './MovieListItem/MovieItem';
+import PropTypes from 'prop-types';
 
 const MovieList = (props) =>(
     <ul className="list-group">
@@ -8,5 +9,9 @@ const MovieList = (props) =>(
         ))}
     </ul>
 );
+
+MovieList.propTypes = {
+    item : PropTypes.object
+}
 
 export default MovieList;
