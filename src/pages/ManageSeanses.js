@@ -152,33 +152,26 @@ class ManageSeanses extends React.Component {
         this.createNotification(messages[i], "ERROR");
     }
   }
-
+  
   validateEditForm = (seanse) => {
     var messages = [];
 
-    // if (movie.title === "") {
-    //   messages.push("Tytuł filmu jest wymagany");
-    // }
+    if (seanse.date === "") {
+     messages.push("Data seansu jest wymagana");
+    }
 
-    // if (movie.title.length > 100) {
-    //   messages.push("Tytuł może mieć maksymalnie 100 znaków");
-    // }
 
-    // if (movie.description === "") {
-    //   messages.push("Opis nie może być pusty");
-    // } 
+    if (!seanse.movie) {
+      messages.push("Nie wybrano filmu");
+    } 
 
-    // if (movie.description.length > 3000) {
-    //   messages.push("Opis jest za długi");
-    // }
+    if (!seanse.hall) {
+      messages.push("Nie wybrano sali");
+    }
 
-    // if (movie.cover === "") {
-    //     messages.push("Okładka nie może być pusta");
-    //   } 
-
-    //   if (movie.duration === "") {
-    //     messages.push("Czas trwanai nie może być pusty");
-    //   } 
+    if (seanse.prince<0) {
+       messages.push("Podano złą cenę");
+    } 
 
     return messages;
   }
