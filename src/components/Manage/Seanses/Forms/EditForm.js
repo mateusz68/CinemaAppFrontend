@@ -8,6 +8,7 @@ import moment from 'moment-timezone';
 import 'moment/locale/pl';
 import 'moment';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
 
 class EditForm extends Component {
     constructor(props) {
@@ -129,5 +130,10 @@ class EditForm extends Component {
     }
 }
 
+EditForm.propTypes = {
+    seanse : PropTypes.object.isRequired,
+    editSeanse : PropTypes.func.isRequired,
+    onClose : PropTypes.func.isRequired
+}
 
 export default EditForm;
