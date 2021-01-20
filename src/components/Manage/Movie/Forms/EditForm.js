@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as Icon from "react-bootstrap-icons";
 import { Button } from 'react-bootstrap';
+import PropTypes from 'prop-types'
 
 class EditForm extends Component {
     constructor(props) {
@@ -51,5 +52,10 @@ class EditForm extends Component {
     }
 }
 
+EditForm.propTypes = {
+    movie : PropTypes.object.isRequired,
+    editMovie : PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired
+}
 
 export default EditForm;
