@@ -157,7 +157,7 @@ class ManageMovies extends React.Component{
             messages.push("Czas trwania nie może być pusty");
           } 
         if(movie.duration <= 0){
-            messages.push("Czas trwania musi być większy od 0")
+            messages.push("Czas trwania musi być większy od 0");
         }
         return messages;
       }
