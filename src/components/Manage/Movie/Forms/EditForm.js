@@ -53,8 +53,8 @@ class EditForm extends Component {
 }
 
 EditForm.propTypes = {
-    movie : PropTypes.object.isRequired,
-    editMovie : PropTypes.func.isRequired,
+    movie: PropTypes.object.isRequired,
+    editMovie: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired
 }
 

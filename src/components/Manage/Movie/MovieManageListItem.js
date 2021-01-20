@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 const MovieManageListItem = ({
     movie,
     showEditForm,
     showDeleteForm
-}) =>(
+}) => (
     <li className="list-group-item">
         <div className="row">
             <div className="col-4">
-            <img className="coverimage" src={movie.cover} alt="Movie cover"/>
+                <img className="coverimage" src={movie.cover} alt="Movie cover" />
             </div>
 
             <div className="col-6 text-center">
-            <h4>{movie.title}</h4>
-            <p>Czas trwania: {movie.duration} minut</p>
+                <h4>{movie.title}</h4>
+                <p>Czas trwania: {movie.duration} minut</p>
 
             </div>
             <div className="col-2 text-center">
@@ -24,7 +24,7 @@ const MovieManageListItem = ({
             </div>
 
         </div>
-        
+
     </li>
 )
 

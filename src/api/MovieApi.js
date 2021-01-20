@@ -1,44 +1,44 @@
 import axios from 'axios';
 axios.defaults.baseURL = 'http://127.0.0.1:8000/api/v1/';
 
-export const getAllMovies = () =>{
+export const getAllMovies = () => {
     return axios.get('movies/')
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
-export const getAllSeanses = () =>{
+export const getAllSeanses = () => {
     return axios.get('seanses/')
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
-export const getAllHalls = () =>{
+export const getAllHalls = () => {
     return axios.get('halls/')
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
-export const getSingleMovie = (id) =>{
-    return axios.get('movies/'+id+"/")
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+export const getSingleMovie = (id) => {
+    return axios.get('movies/' + id + "/")
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
 
@@ -53,7 +53,7 @@ export const addTicket = (body) => {
 }
 
 export const editMovie = (id, body) => {
-    return axios.put("/movies/" + id +"/", body)
+    return axios.put("/movies/" + id + "/", body)
         .then((response) => {
             return response;
         })
@@ -63,7 +63,7 @@ export const editMovie = (id, body) => {
 }
 
 export const deleteMovie = (id) => {
-    return axios.delete("/movies/" + id+"/")
+    return axios.delete("/movies/" + id + "/")
         .then(response => {
             return response;
         })
@@ -83,7 +83,7 @@ export const addMovie = (body) => {
 }
 
 export const editSeanse = (id, body) => {
-    return axios.put("/seanse/" + id +"/", body)
+    return axios.put("/seanse/" + id + "/", body)
         .then((response) => {
             return response;
         })
@@ -93,7 +93,7 @@ export const editSeanse = (id, body) => {
 }
 
 export const deleteSeanse = (id) => {
-    return axios.delete("/seanse/" + id+"/")
+    return axios.delete("/seanse/" + id + "/")
         .then(response => {
             return response;
         })
@@ -113,63 +113,63 @@ export const addSeanse = (body) => {
 }
 
 
-export const getMovieSeanses = (id) =>{
-    return axios.get('movies/'+id+"/seanse/")
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+export const getMovieSeanses = (id) => {
+    return axios.get('movies/' + id + "/seanse/")
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
-export const getTicketDetails = (id) =>{
-    return axios.get('seanses/'+id+"/ticket/")
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+export const getTicketDetails = (id) => {
+    return axios.get('seanses/' + id + "/ticket/")
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
-export const getLastMovies = () =>{
+export const getLastMovies = () => {
     return axios.get("lastmovies/")
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
-export const getTodaySeanses = () =>{
+export const getTodaySeanses = () => {
     return axios.get("todayseanses/")
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
-export const getMoviePopularity = (id) =>{
-    return axios.get('movies/'+id+"/popularity/")
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+export const getMoviePopularity = (id) => {
+    return axios.get('movies/' + id + "/popularity/")
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
 
-export const getSeansesByDate = (date) =>{
+export const getSeansesByDate = (date) => {
     return axios.get('seansebyday/' + '?day=' + date)
-    .then((response) =>{
-        return response.data;
-    })
-    .catch((error) =>{
-        return error;
-    });
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
 }

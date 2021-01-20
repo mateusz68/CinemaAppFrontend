@@ -28,14 +28,12 @@ class ManageSeanses extends React.Component {
       });
     MovieApi.getAllMovies()
       .then(response => {
-        console.log(response)
         this.setState({
           movies: response,
         });
       });
     MovieApi.getAllHalls()
       .then(response => {
-        console.log(response)
         this.setState({
           halls: response,
         });
@@ -151,29 +149,29 @@ class ManageSeanses extends React.Component {
         this.createNotification(messages[i], "ERROR");
     }
   }
-  
+
   validateForm = (seanse) => {
     var messages = [];
 
     if (seanse.date === "") {
-     messages.push("Data seansu jest wymagana");
+      messages.push("Data seansu jest wymagana");
     }
 
     if (Date.parse(seanse.date) < new Date()) {
       messages.push("Data seansu musi być przyszła");
-     }
+    }
 
     if (!seanse.movie) {
       messages.push("Nie wybrano filmu");
-    } 
+    }
 
     if (!seanse.hall) {
       messages.push("Nie wybrano sali");
     }
 
-    if (seanse.prince<0) {
-       messages.push("Podano złą cenę");
-    } 
+    if (seanse.prince < 0) {
+      messages.push("Podano złą cenę");
+    }
 
     return messages;
   }

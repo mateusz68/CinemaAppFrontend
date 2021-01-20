@@ -26,9 +26,6 @@ const MovieItem = ({
                 <Link to={'/movie/' + pk}>
                     <Button>Szczegóły</Button>
                 </Link>
-
-
-
             </div>
 
         </div>

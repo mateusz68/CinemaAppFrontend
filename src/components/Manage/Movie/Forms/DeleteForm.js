@@ -25,11 +25,11 @@ const DeleteForm = (props) => {
         </div>
     );
 };
-                
+
 DeleteForm.propTypes = {
-    deleteMovie : PropTypes.func.isRequired,
-    onClose : PropTypes.func.isRequired,
-    movie : PropTypes.object.isRequired
+    deleteMovie: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
+    movie: PropTypes.object.isRequired
 }
 
 export default DeleteForm;

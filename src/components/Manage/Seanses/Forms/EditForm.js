@@ -131,9 +131,9 @@ class EditForm extends Component {
 }
 
 EditForm.propTypes = {
-    seanse : PropTypes.object.isRequired,
-    editSeanse : PropTypes.func.isRequired,
-    onClose : PropTypes.func.isRequired
+    seanse: PropTypes.object.isRequired,
+    editSeanse: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired
 }
 
 export default EditForm;

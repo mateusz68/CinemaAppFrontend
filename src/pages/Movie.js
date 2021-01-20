@@ -28,8 +28,6 @@ class Movie extends React.Component {
                 this.setState({
                     seanses: response,
                 })
-                console.log("stan")
-                console.log(this.state)
             });
     }
 

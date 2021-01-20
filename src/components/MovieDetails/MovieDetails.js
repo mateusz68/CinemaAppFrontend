@@ -3,7 +3,7 @@ import React from 'react';
 const MovieDetails = ({ movie }) => (
     <div className="row ">
         <div className="col-4 text-center">
-            <img className="img-fluid" src={movie.cover} alt="Movie cover"/>
+            <img className="img-fluid" src={movie.cover} alt="Movie cover" />
         </div>
         <div className="col-8">
             <h4>{movie.title}</h4>

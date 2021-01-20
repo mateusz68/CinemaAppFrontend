@@ -81,9 +81,11 @@ class BuyTicket extends React.Component {
               if (index > -1) {
                 prev_avaliable.splice(index, 1);
               }
-              return { busy_seats: [...prevState.busy_seats, body.seat],
-               available_seats: prev_avaliable,
-               selectedOption: null,};
+              return {
+                busy_seats: [...prevState.busy_seats, body.seat],
+                available_seats: prev_avaliable,
+                selectedOption: null,
+              };
             });
           } else {
             this.createNotification("Nie udało się złżożyć rezerwacji", "ERROR");
@@ -95,11 +97,11 @@ class BuyTicket extends React.Component {
   render() {
     const { selectedOption } = this.state;
     let myButton;
-      if(Date.parse(this.state.seanse.date) >= new Date()){
-        myButton = <Button onClick={() => this.buyTicketClick()}>Kup Bilet</Button>
-      }else{
-        myButton = <div><Button onClick={() => this.buyTicketClick()} disabled>Kup Bilet</Button><p>Nie można zakupić biletu na ten seans!</p></div>
-      }
+    if (Date.parse(this.state.seanse.date) >= new Date()) {
+      myButton = <Button onClick={() => this.buyTicketClick()}>Kup Bilet</Button>
+    } else {
+      myButton = <div><Button onClick={() => this.buyTicketClick()} disabled>Kup Bilet</Button><p>Nie można zakupić biletu na ten seans!</p></div>
+    }
     return (
       <div className="mb-5">
         <h1 className="text-center">Zakup bilet na film</h1>

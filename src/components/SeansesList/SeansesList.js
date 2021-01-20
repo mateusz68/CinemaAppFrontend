@@ -10,7 +10,7 @@ const SeanseList = (props) => (
 );
 
 SeanseList.propTypes = {
-    item : PropTypes.object
+    item: PropTypes.object
 }
 
 export default SeanseList;

@@ -11,48 +11,48 @@ import Movie from './pages/Movie';
 import ManageMovies from './pages/ManageMovies';
 import ManageSeanses from './pages/ManageSeanses';
 
-class App extends React.Component{
+class App extends React.Component {
   state = {
     items: [],
   }
 
-  componentDidMount(){
+  componentDidMount() {
     MovieApi.getAllMovies()
-    .then(response =>{
-      var movies = response;
-      this.setState({
-        items: movies,
+      .then(response => {
+        var movies = response;
+        this.setState({
+          items: movies,
+        })
       })
-    })
-    
-      
+
+
   }
-  render(){
-    return(
+  render() {
+    return (
       <div>
-       
-<div className="container mt-2 mb-5">
 
-    
-    <Router>
-    <Navigation/>
-<Route exact path="/" component={Home} />
-<Route exact path="/movies" component={Movies} />
-<Route exact path="/seanses" component={Seanses} />
-<Route exact path="/movie/:id" component={Movie} />
-<Route exact path="/ticket/:id" component={BuyTicket} />
-<Route exact path="/manage/movies" component={ManageMovies} />
-<Route exact path="/manage/seanses" component={ManageSeanses} />
-</Router>
-</div>
+        <div className="container mt-2 mb-5">
 
 
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Kino 2020</p>
-    </div>
-</footer>
-</div>
+          <Router>
+            <Navigation />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/movies" component={Movies} />
+            <Route exact path="/seanses" component={Seanses} />
+            <Route exact path="/movie/:id" component={Movie} />
+            <Route exact path="/ticket/:id" component={BuyTicket} />
+            <Route exact path="/manage/movies" component={ManageMovies} />
+            <Route exact path="/manage/seanses" component={ManageSeanses} />
+          </Router>
+        </div>
+
+
+        <footer class="py-5 bg-dark">
+          <div class="container">
+            <p class="m-0 text-center text-white">Kino 2020</p>
+          </div>
+        </footer>
+      </div>
     )
   }
 }

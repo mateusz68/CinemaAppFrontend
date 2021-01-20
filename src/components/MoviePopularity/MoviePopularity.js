@@ -67,7 +67,7 @@ class MoviePopularity extends React.Component {
 }
 
 MoviePopularity.propTypes = {
-  movie : PropTypes.object
+  movie: PropTypes.object
 }
 
 export default MoviePopularity;
