@@ -9,7 +9,7 @@ const MovieDetails = ({ movie }) => (
             <h4>{movie.title}</h4>
             <p>Czas trwania: {movie.duration} minut</p>
             <p>Opis:</p>
-            <p>....</p>
+            <p>{movie.description}</p>
         </div>
 
     </div>
