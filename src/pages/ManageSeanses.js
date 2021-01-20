@@ -67,6 +67,7 @@ class ManageSeanses extends React.Component {
         return (
           <div>
             <EditForm seanse={seanse} onClose={onClose} editSeanse={this.addSeanse} halls={this.state.halls} movies={this.state.movies} />
+            <NotificationContainer />
           </div>
         );
       }
@@ -91,6 +92,7 @@ class ManageSeanses extends React.Component {
             body["pk"] = response.data.pk;
             body.movie = s.editMovie;
             body.hall = s.editHall;
+            this.createNotification('Pomyślnie dodano nowy element.', "SUCCESS");
             this.setState(state => {
               var prev = state.seanses;
               prev.push(body);
@@ -102,7 +104,7 @@ class ManageSeanses extends React.Component {
     }
     else {
       for (let i = 0; i < messages.length; i++)
-        window.alert(messages[i]);
+        this.createNotification(messages[i], "ERROR");
     }
   }
 
@@ -160,6 +162,9 @@ class ManageSeanses extends React.Component {
      messages.push("Data seansu jest wymagana");
     }
 
+    if (Date.parse(seanse.date) < new Date()) {
+      messages.push("Data seansu musi być przyszła");
+     }
 
     if (!seanse.movie) {
       messages.push("Nie wybrano filmu");
