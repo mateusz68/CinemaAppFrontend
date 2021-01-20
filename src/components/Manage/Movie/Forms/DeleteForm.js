@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import * as Icon from "react-bootstrap-icons";
+import PropTypes from 'prop-types';
 
 const DeleteForm = (props) => {
     const { deleteMovie, onClose, movie } = props;
@@ -24,5 +25,11 @@ const DeleteForm = (props) => {
         </div>
     );
 };
+                
+DeleteForm.propTypes = {
+    deleteMovie : PropTypes.func.isRequired,
+    onClose : PropTypes.func.isRequired,
+    movie : PropTypes.object.isRequired
+}
 
 export default DeleteForm;
