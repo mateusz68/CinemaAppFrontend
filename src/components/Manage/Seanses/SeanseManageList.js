@@ -1,5 +1,6 @@
 import React from 'react';
 import SeanseManageListItem from './SeanseManageListItem';
+import PropTypes from 'prop-types'
 
 const SeanseManageList = (props) =>(
     <ul className="list-group">
@@ -8,5 +9,11 @@ const SeanseManageList = (props) =>(
         ))}
     </ul>
 );
+
+SeanseManageList.propTypes = {
+    seanse : PropTypes.object,
+    showEditForm : PropTypes.func,
+    showDeleteForm : PropTypes.func
+}
 
 export default SeanseManageList;
