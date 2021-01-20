@@ -33,4 +33,10 @@ const SeanseManageListItem = props => {
     )
 }
 
+SeanseManageListItem.propTypes = {
+    seanse : PropTypes.object,
+    showEditForm : PropTypes.func,
+    showDeleteForm : PropTypes.func
+}
+
 export default SeanseManageListItem;
