@@ -1,6 +1,7 @@
 import React from 'react';
 import * as MovieApi from './../../api/MovieApi';
 import { Line } from 'react-chartjs-2'
+import PropTypes from 'prop-types';
 
 
 const options = {
@@ -65,5 +66,8 @@ class MoviePopularity extends React.Component {
   }
 }
 
+MoviePopularity.propTypes = {
+  movie : PropTypes.object
+}
 
 export default MoviePopularity;
