@@ -1,11 +1,8 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import MovieList from './components/MoviesList/MovieList';
-import axios from 'axios';
 import * as MovieApi from './api/MovieApi';
 import Navigation from './components/Navigation/Navigation';
-import MovieDetails from './components/MovieDetails/MovieDetails';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Seanses from './pages/Seanses';
@@ -13,7 +10,6 @@ import BuyTicket from './pages/BuyTicket';
 import Movie from './pages/Movie';
 import ManageMovies from './pages/ManageMovies';
 import ManageSeanses from './pages/ManageSeanses';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 class App extends React.Component{
   state = {

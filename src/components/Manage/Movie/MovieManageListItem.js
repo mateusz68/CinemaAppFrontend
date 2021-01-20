@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const MovieManageListItem = ({
     movie,
@@ -11,7 +10,7 @@ const MovieManageListItem = ({
     <li className="list-group-item">
         <div className="row">
             <div className="col-4">
-            <img className="coverimage" src={movie.cover}/>
+            <img className="coverimage" src={movie.cover} alt="Movie cover"/>
             </div>
 
             <div className="col-6 text-center">

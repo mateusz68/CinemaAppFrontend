@@ -84,7 +84,7 @@ class ManageSeanses extends React.Component {
       "hall": s.editHall.pk,
       "prince": Number(s.editPrince),
     }
-    var messages = this.validateEditForm(body);
+    var messages = this.validateForm(body);
     if (messages.length === 0) {
       MovieApi.addSeanse(body)
         .then(response => {
@@ -94,9 +94,7 @@ class ManageSeanses extends React.Component {
             body.hall = s.editHall;
             this.createNotification('Pomyślnie dodano nowy element.', "SUCCESS");
             this.setState(state => {
-              var prev = state.seanses;
-              prev.push(body);
-              return { seanses: prev };
+              return { seanses: [...state.seanses, body] };
             });
 
           }
@@ -110,7 +108,6 @@ class ManageSeanses extends React.Component {
 
 
   showEditForm = (seanse) => {
-    console.log(seanse);
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
@@ -131,7 +128,7 @@ class ManageSeanses extends React.Component {
       "hall": s.editHall.pk,
       "prince": Number(s.editPrince),
     }
-    var messages = this.validateEditForm(body);
+    var messages = this.validateForm(body);
     if (messages.length === 0) {
       MovieApi.editSeanse(seanse.pk, body)
         .then(response => {
@@ -155,7 +152,7 @@ class ManageSeanses extends React.Component {
     }
   }
   
-  validateEditForm = (seanse) => {
+  validateForm = (seanse) => {
     var messages = [];
 
     if (seanse.date === "") {

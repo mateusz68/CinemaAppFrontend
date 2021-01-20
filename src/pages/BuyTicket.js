@@ -75,7 +75,16 @@ class BuyTicket extends React.Component {
         .then(response => {
           if (response.status === 201) {
             this.createNotification('Rezerwacja złożona pomyślnie.', "SUCCESS");
-            this.props.history.push('/');
+            this.setState(prevState => {
+              var prev_avaliable = prevState.available_seats;
+              var index = prevState.available_seats.findIndex((obj => obj.value === body.seat.toString()));
+              if (index > -1) {
+                prev_avaliable.splice(index, 1);
+              }
+              return { busy_seats: [...prevState.busy_seats, body.seat],
+               available_seats: prev_avaliable,
+               selectedOption: null,};
+            });
           } else {
             this.createNotification("Nie udało się złżożyć rezerwacji", "ERROR");
           }
